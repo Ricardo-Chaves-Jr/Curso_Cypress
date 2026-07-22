@@ -11,12 +11,13 @@ jobs:
 
     steps:
       - name: Checkout do código
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: npm
 
       - name: Instalar dependências
         run: npm ci
@@ -24,5 +25,4 @@ jobs:
       - name: Executar testes Cypress
         uses: cypress-io/github-action@v6
         with:
-          build: npm ci
-          start: npx cypress run
+          runTests: true
