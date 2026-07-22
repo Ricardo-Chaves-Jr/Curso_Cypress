@@ -26,3 +26,28 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           runTests: true
+
+      - name: Publicar relatório HTML dos testes
+        if: always() # publica o relatório mesmo quando algum teste falha
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-testes
+          path: cypress/reports
+          retention-days: 30
+
+      - name: Publicar screenshots das falhas
+        if: failure() # só há screenshots quando algum teste falha
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots-falhas
+          path: cypress/screenshots
+          retention-days: 30
+
+      - name: Publicar vídeos da execução
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: videos-execucao
+          path: cypress/videos
+          if-no-files-found: ignore
+          retention-days: 30
