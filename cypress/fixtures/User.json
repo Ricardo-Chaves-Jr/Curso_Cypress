@@ -1,0 +1,14 @@
+{
+    "criar_user":{
+         "nome": "Nome teste",
+                  "email": "1AS2D@qa.com.br",
+                  "password": "teste",
+                  "administrador": "true"
+    },
+     "atualizar_user":{
+         "nome": "Nome teste",
+                  "email": "1AS2D@qa.com.br",
+                  "password": "teste",
+                  "administrador": "true"
+    }   
+}

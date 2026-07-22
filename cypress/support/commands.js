@@ -1,25 +1,34 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('criar_user', (cruser) => {
+    cy.api({
+        method: 'POST',
+        url: 'https://serverest.dev/usuarios',
+        body: cruser
+    }).then((response) => { return response })
+
+})
+Cypress.Commands.add('buscar_user', (id) => {
+    cy.api({
+        method: 'GET',
+        url: `https://serverest.dev/usuarios/` + id
+    }).then((response) => { return response })
+})
+Cypress.Commands.add('atualizar_user', (cruser) => {
+    cy.api({
+        method: 'PUT',
+        url: `https://serverest.dev/usuarios/${cy.env['id']}`,
+        body: cruser
+    }).then((response) => { return response })
+})
+Cypress.Commands.add('deletar_user', (id) => {
+    cy.api({
+        method: 'DELETE',
+        url: `https://serverest.dev/usuarios/${cy.env['id']}`
+    }).then((response) => { return response })
+})
+Cypress.Commands.add('login_user', (email, senha) => {
+    cy.api({
+        method: 'POST',
+        url: 'https://serverest.dev/login',
+        body: { email: email, password: senha }
+    }).then((response) => { return response })
+})
