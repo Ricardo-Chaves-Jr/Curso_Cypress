@@ -9,5 +9,16 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ricardo-Chaves-Jr/Curso_Cypress.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ricardo-Chaves-Jr/Curso_Cypress/issues"
+  },
+  "homepage": "https://github.com/Ricardo-Chaves-Jr/Curso_Cypress#readme",
+  "devDependencies": {
+    "cypress": "^15.19.0"
+  }
 }
